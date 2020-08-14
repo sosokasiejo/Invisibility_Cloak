@@ -14,7 +14,7 @@ Harry :  Hey !! Would you like to try my invisibility cloak ??
 
 
 cap = cv2.VideoCapture(0)
-time.sleep(3)
+time.sleep(20)
 background=0
 for i in range(30):
 	ret,background = cap.read()
@@ -33,15 +33,15 @@ while(cap.isOpened()):
 	
 	blurred = cv2.GaussianBlur(hsv, value,0)
 	
-	# Defining lower range for red color detection.
-	lower_red = np.array([0,120,70])
-	upper_red = np.array([10,255,255])
-	mask1 = cv2.inRange(hsv,lower_red,upper_red)
+	# Defining lower range for green color detection.
+	lower_green = np.array([0,120,70])
+	upper_green = np.array([10,255,255])
+	mask1 = cv2.inRange(hsv,lower_green,upper_green)
 	
-	# Defining upper range for red color detection
-	lower_red = np.array([170,120,70])
-	upper_red = np.array([180,255,255])
-	mask2 = cv2.inRange(hsv,lower_red,upper_red)
+	# Defining upper range for green color detection
+	lower_green = np.array([170,120,70])
+	upper_green = np.array([180,255,255])
+	mask2 = cv2.inRange(hsv,lower_green,upper_green)
 	
 	# Addition of the two masks to generate the final mask.
 	mask = mask1+mask2
